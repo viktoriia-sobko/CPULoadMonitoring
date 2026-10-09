@@ -1,0 +1,28 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
+
+cc_library(
+    name = "cpumon_lib",
+    srcs = [
+        "src/app.cpp",
+        "src/cpu_load_reader.cpp",
+        "src/report.cpp",
+    ],
+    hdrs = [
+        "src/app.hpp",
+        "src/cpu_load_reader.hpp",
+        "src/fd.hpp",
+        "src/report.hpp",
+    ],
+)
+
+cc_binary(
+    name = "cpu_monitor",
+    srcs = ["src/main.cpp"],
+    deps = [":cpumon_lib"],
+)
+
+cc_test(
+    name = "cpu_load_reader_test",
+    srcs = ["tests/cpu_load_reader_test.cpp"],
+    deps = [":cpumon_lib"],
+)
