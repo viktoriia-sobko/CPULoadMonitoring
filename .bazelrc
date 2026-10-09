@@ -1,4 +1,8 @@
 build --cxxopt=-std=c++17
 build --host_cxxopt=-std=c++17
+build --track_incremental_state
+build --norun_validations
 build --copt=-Wall --copt=-Wextra --copt=-Wpedantic
 test --test_output=errors
+
+

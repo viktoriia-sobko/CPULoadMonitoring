@@ -59,7 +59,6 @@ def _aspect_impl(target, ctx):
 intellij_info_aspect = make_intellij_info_aspect(
     _aspect_impl,
     semantics,
-    toolchains_aspects = TOOLCHAIN_TYPE_DEPS,
 )
 # TEMPLATE-INCLUDE-END
 
